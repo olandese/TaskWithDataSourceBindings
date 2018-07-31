@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "Extension-Task-With-DataSources",
     "name": "Extension for Task With Data Sources",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "publisher": "marcomansi",
     "targets": [
         {
