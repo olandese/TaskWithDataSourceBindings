@@ -19,6 +19,28 @@
     "groups": [],
     "inputs": [
         {
+            "name": "ConnectedServiceNameSelector",
+            "aliases": ["azureConnectionType"],
+            "type": "pickList",
+            "label": "Azure Connection Type",
+            "required": false,
+            "helpMarkDown": "",
+            "defaultValue": "ConnectedServiceNameARM",
+            "options": {
+                "ConnectedServiceNameARM": "Azure Resource Manager"
+            },
+            "visible": false
+        },
+        {
+            "name": "ConnectedServiceNameARM",
+            "aliases": ["azureSubscription"],
+            "type": "connectedService:AzureRM",
+            "label": "Azure Subscription",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Azure Resource Manager subscription to configure before running PowerShell"
+        },
+        {
             "name": "samplepathinput",
             "type": "filePath",
             "label": "Sample Path",
