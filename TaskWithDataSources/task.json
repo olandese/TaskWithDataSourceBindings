@@ -11,9 +11,9 @@
     ],
     "author": "Marco Mansi",
     "version": {
-        "Major": 0,
-        "Minor": 1,
-        "Patch": 0
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 2
     },
     "instanceNameFormat": "",
     "groups": [],
@@ -29,7 +29,7 @@
             "options": {
                 "ConnectedServiceNameARM": "Azure Resource Manager"
             },
-            "visible": false
+            "visibleRule": "ConnectedServiceNameSelector = ConnectedServiceName"
         },
         {
             "name": "ConnectedServiceNameARM",
@@ -41,29 +41,21 @@
             "helpMarkDown": "Azure Resource Manager subscription to configure before running PowerShell"
         },
         {
-            "name": "samplepathinput",
-            "type": "filePath",
-            "label": "Sample Path",
-            "defaultValue": "",
+            "name": "ResourceGroupName",
+            "type": "pickList",
+            "label": "Resource Group",
             "required": true,
-            "helpMarkDown": "A sample path which is relative to root of repo if empty"
-        },
+            "helpMarkDown": "Provide the name of the Resource Group.",
+            "properties": {
+                "EditableOptions": "True"
+            }
+        }
+    ],
+    "dataSourceBindings": [
         {
-            "name": "samplestring",
-            "type": "string",
-            "label": "Sample String",
-            "defaultValue": "",
-            "required": false,
-            "helpMarkDown": "A sample string"
-        },
-        {
-            "name": "samplebool",
-            "type": "boolean",
-            "label": "Sample Boolean",
-            "defaultValue": "false",
-            "required": false,
-            "helpMarkDown": "If this is true, this task will fail if any errors are written to the StandardError stream.",
-            "groupName": "advanced"
+            "target": "ResourceGroupName",
+            "endpointId": "$(ConnectedServiceNameARM)",
+            "dataSourceName": "AzureResourceGroups"
         }
     ],
     "execution": {
