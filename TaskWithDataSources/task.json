@@ -13,7 +13,7 @@
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 4
+        "Patch": 5
     },
     "instanceNameFormat": "",
     "groups": [],
@@ -49,6 +49,16 @@
             "properties": {
                 "EditableOptions": "True"
             }
+        },
+        {
+            "name": "WebApp",
+            "type": "pickList",
+            "label": "Web App",
+            "required": true,
+            "helpMarkDown": "Provide the name of the Web App.",
+            "properties": {
+                "EditableOptions": "True"
+            }
         }
     ],
     "dataSourceBindings": [
@@ -56,6 +66,16 @@
             "target": "ResourceGroupName",
             "endpointId": "$(ConnectedServiceNameARM)",
             "dataSourceName": "AzureResourceGroups"
+        },
+        {
+            "target": "WebApp",
+            "endpointId": "$(ConnectedServiceNameARM)",
+            "dataSourceName": "AzureRMResourcesInRGBasedOnType",
+            "parameters": {
+                "ResourceGroupName": "$(ResourceGroupName)",
+                "ResourceType": "Microsoft.Web/sites"
+            },
+            "resultTemplate": "{ \"Value\" : \"{{{name}}}\", \"DisplayValue\" : \"{{{name}}}\" }"
         }
     ],
     "execution": {
