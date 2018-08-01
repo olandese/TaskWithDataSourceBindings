@@ -13,7 +13,7 @@
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 6
+        "Patch": 8
     },
     "instanceNameFormat": "",
     "groups": [],
@@ -59,6 +59,16 @@
             "properties": {
                 "EditableOptions": "True"
             }
+        },
+        {
+            "name": "MapAccountInput",
+            "type": "pickList",
+            "label": "Azure Maps Account",
+            "required": true,
+            "helpMarkDown": "Provide the name Azure Maps Accpunt.",
+            "properties": {
+                "EditableOptions": "True"
+            }
         }
     ],
     "dataSourceBindings": [
@@ -72,10 +82,16 @@
             "endpointId": "$(ConnectedServiceNameARM)",
             "dataSourceName": "AzureRMResourcesInRGBasedOnType",
             "parameters": {
-                "ResourceGroupName": "$(ResourceGroupName)",
+                "ResourceGroupName": "$(ResourceGroupNameInput)",
                 "ResourceType": "Microsoft.Web/sites"
             },
             "resultTemplate": "{ \"Value\" : \"{{{name}}}\", \"DisplayValue\" : \"{{{name}}}\" }"
+        },
+        {
+            "target": "MapAccountInput",
+            "endpointId": "$(ConnectedServiceNameARM)",
+            "endpointUrl": "{{{endpoint.url}}}/subscriptions/$(endpoint.subscriptionId)/resourceGroups/$(ResourceGroupNameInput)/providers/Microsoft.Maps/accounts?api-version=2018-05-01",
+            "resultSelector": "jsonpath:$.value[*].name"
         }
     ],
     "execution": {
