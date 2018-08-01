@@ -13,7 +13,7 @@
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 8
+        "Patch": 9
     },
     "instanceNameFormat": "",
     "groups": [],
@@ -61,7 +61,7 @@
             }
         },
         {
-            "name": "MapAccountInput",
+            "name": "MapsAccountInput",
             "type": "pickList",
             "label": "Azure Maps Account",
             "required": true,
@@ -88,7 +88,7 @@
             "resultTemplate": "{ \"Value\" : \"{{{name}}}\", \"DisplayValue\" : \"{{{name}}}\" }"
         },
         {
-            "target": "MapAccountInput",
+            "target": "MapsAccountInput",
             "endpointId": "$(ConnectedServiceNameARM)",
             "endpointUrl": "{{{endpoint.url}}}/subscriptions/$(endpoint.subscriptionId)/resourceGroups/$(ResourceGroupNameInput)/providers/Microsoft.Maps/accounts?api-version=2018-05-01",
             "resultSelector": "jsonpath:$.value[*].name"
