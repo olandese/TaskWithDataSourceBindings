@@ -13,7 +13,7 @@
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 5
+        "Patch": 6
     },
     "instanceNameFormat": "",
     "groups": [],
@@ -41,7 +41,7 @@
             "helpMarkDown": "Azure Resource Manager subscription to configure before running PowerShell"
         },
         {
-            "name": "ResourceGroupName",
+            "name": "ResourceGroupNameInput",
             "type": "pickList",
             "label": "Resource Group",
             "required": true,
@@ -51,7 +51,7 @@
             }
         },
         {
-            "name": "WebApp",
+            "name": "WebAppInput",
             "type": "pickList",
             "label": "Web App",
             "required": true,
@@ -63,12 +63,12 @@
     ],
     "dataSourceBindings": [
         {
-            "target": "ResourceGroupName",
+            "target": "ResourceGroupNameInput",
             "endpointId": "$(ConnectedServiceNameARM)",
             "dataSourceName": "AzureResourceGroups"
         },
         {
-            "target": "WebApp",
+            "target": "WebAppInput",
             "endpointId": "$(ConnectedServiceNameARM)",
             "dataSourceName": "AzureRMResourcesInRGBasedOnType",
             "parameters": {
