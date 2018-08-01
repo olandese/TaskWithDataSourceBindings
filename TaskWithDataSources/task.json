@@ -13,7 +13,7 @@
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 9
+        "Patch": 11
     },
     "instanceNameFormat": "",
     "groups": [],
@@ -90,7 +90,7 @@
         {
             "target": "MapsAccountInput",
             "endpointId": "$(ConnectedServiceNameARM)",
-            "endpointUrl": "{{{endpoint.url}}}/subscriptions/$(endpoint.subscriptionId)/resourceGroups/$(ResourceGroupNameInput)/providers/Microsoft.Maps/accounts?api-version=2018-05-01",
+            "endpointUrl": "{{{endpoint.url}}}/subscriptions/{{{endpoint.subscriptionId}}}/resourceGroups/$(ResourceGroupNameInput)/providers/Microsoft.Maps/accounts?api-version=2018-05-01",
             "resultSelector": "jsonpath:$.value[*].name"
         }
     ],
